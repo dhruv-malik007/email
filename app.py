@@ -29,7 +29,7 @@ def signup():
     password = request.form.get("password")
 
     try:
-        msg = Message("Welcome to ACN",sender="dhruv.symb@gmail.com", recipients=[user_email])
+        msg = Message("Welcome to ACN", recipients=[user_email])
         msg.html = render_template("index.html", user_name=user_name,user_mobile=user_mobile,user_email=user_email)
         mail.send(msg)
         logging.info(f"Email sent successfully to {user_email}")
