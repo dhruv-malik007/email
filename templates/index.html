@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <title>ACEplus Welcome Email</title>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+        }
+
+        .gradient {
+            /* width: 100%; */
+            height: auto;
+            background: linear-gradient(90deg, #2E0048, #9B4F96, #004CF9);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gradient img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .data {
+            padding: 20px;
+            color: #333;
+        }
+
+        .data p {
+            margin: 0 0 15px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+
+        .table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table td:first-child {
+            font-weight: bold;
+            width: 40%;
+        }
+
+        .image img {
+            max-width: 100px;
+            margin-top: 0px;
+            margin-left: 2%;
+        }
+        .footer {
+            
+            padding: 10px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #0000EE; /* Standard link color */
+            margin: 0 10px;
+        }
+
+        .footer img {
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .gradient {
+                padding: 10px;
+            }
+
+            .data p {
+                font-size: 14px;
+            }
+
+            .table td {
+                padding: 8px;
+            }
+
+            .image img {
+                max-width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Gradient Header with Image -->
+        <div class="gradient">
+            <img src="{{ url_for('static', filename='ace.svg') }}" alt="ACEplus Logo">
+        </div>
+
+        <!-- Email Content -->
+        <div class="data">
+            <p><strong>Subject:</strong> Welcome to ACEplus</p>
+            <p>Dear {{ user_name }},</p>
+            <p>Welcome to ACEplus - a new and unique learning platform that teaches students to Achieve necessary life skills and be more Confident while communicating in English.</p>
+            <p>This app will help your child develop 5 key 21st-century success skills: i. Life Skills, ii. Cognitive Skills, iii. Spoken English Skills, iv. Interpersonal Skills, v. Communication Skills.</p>
+            <p>This will be done through friendly and interactive videos, scientifically crafted exercises, and colourful learning-based games, reinforced by LIVE feedback sessions by specially trained skill coaches.</p>
+            <p><strong>Here are your registration details:</strong></p>
+
+            <!-- User Information Table -->
+            <table class="table">
+                <tr>
+                    <td>Name:</td>
+                    <td>{{ user_name }}</td>
+                </tr>
+                <tr>
+                    <td>Mobile Number:</td>
+                    <td>{{ user_mobile }}</td>
+                </tr>
+                <tr>
+                    <td>Email Address:</td>
+                    <td>{{ user_email }}</td>
+                </tr>
+            </table>
+
+            <p>Thank you for signing up for our new ACEplus App. Please proceed to register your child/children if you have not already done so.</p>
+            <p>Warm Regards,<br>Team ACEplus</p>
+        </div>
+
+        <!-- Footer with Logo -->
+        <div class="image">
+            <img src="{{ url_for('static', filename='logo.svg') }}" alt="ACEplus Logo">
+        </div>
+        <hr style="color:gray">
+        <div class="footer">
+            <p>For any queries contact us at</p>
+            <a href="tel:+919007588585">
+                <img src="{{ url_for('static', filename='Frame 1.svg') }}" alt="Phone">
+                +91 9007588585
+            </a>
+            <a href="mailto:hello@aceplus.in">
+                <img src="{{ url_for('static', filename='Frame 2.svg') }}" alt="Email">
+                hello@aceplus.in
+            </a>
+            <a href="https://www.aceplus.in">
+                <img src="{{ url_for('static', filename='Frame 3.svg') }}" alt="Website">
+                aceplus.in
+            </a>
+        </div>
+    </div>
+</body>
+</html>
